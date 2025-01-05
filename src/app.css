@@ -2,6 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import '/src/styles/utils.css';
+
 html {
   height: 100%;
 }
@@ -10,4 +12,8 @@ body {
   height: 100%;
   display: grid;
   grid-template-rows: 4rem auto 3rem;
+}
+
+app-body {
+  padding: 1.5rem;
 }

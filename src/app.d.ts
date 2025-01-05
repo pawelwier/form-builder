@@ -4,7 +4,9 @@ import type PocketBase, { AuthModel } from 'pocketbase'
 // for information about these interfaces
 declare global {
 	namespace App {
-		// interface Error {}
+		interface Error {
+			message: string
+		}
 		interface Locals {
 			pb: PocketBase,
 			user: AuthModel | null

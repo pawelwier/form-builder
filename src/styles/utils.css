@@ -1,0 +1,10 @@
+.btn-main {
+  @apply
+    bg-slate-700 text-white 
+    px-6 py-3
+    rounded-xl
+}
+
+.btn-main:hover {
+  @apply opacity-90
+}
