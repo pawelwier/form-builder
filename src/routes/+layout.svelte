@@ -1,9 +1,10 @@
 <script lang="ts">
 import UserInfo from '$lib/layout/UserInfo.svelte'
+import type { AuthRecord } from 'pocketbase'
 import '../app.css'
 
 export let children
-export let data
+export let data: { user: AuthRecord }
 
 $:({ user } = data)
 </script>

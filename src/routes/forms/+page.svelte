@@ -1,7 +1,8 @@
-<script>
-import FormRecord from '$lib/forms/FormRecord.svelte';
+<script lang="ts">
+import FormRecord from '$lib/forms/FormRecord.svelte'
+import type { RecordModel } from 'pocketbase'
 
-export let data
+export let data: { isAuth: boolean, forms: RecordModel[] }
 
 $: ({ isAuth, forms } = data)
 </script>

@@ -1,9 +1,8 @@
-<script>
-export let data
+<script lang="ts">
+export let data: { isAuth: boolean }
 </script>
 
-{#if data.user}
-  <div>Hello {data.user.username}</div>
+{#if data.isAuth}
   <a href="/forms">Forms</a>
 {:else}
   <!-- TODO: move to LoginForm component -->

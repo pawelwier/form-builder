@@ -8,6 +8,12 @@ export const load: PageServerLoad = async ({ params: { id }, locals }) => {
 
   try {
     const record = await pb.collection('forms').getOne(id)
+    const { inputIds } = record // TODO: add types
+    const inputRecords = await pb.collection('inputs').getFullList({
+      filter: inputIds.map((inputId: string) => `id='${inputId}'`).join("||"),
+    })
+    record.inputs = inputRecords
+
     return { record }
   } catch (e: unknown) {
     let errorMsg: string
@@ -15,6 +21,17 @@ export const load: PageServerLoad = async ({ params: { id }, locals }) => {
       errorMsg = 'A form with provided ID does not exist'
     }
     else errorMsg = 'An error occurred'
+
     return { errorMsg }
+  }
+}
+
+export const actions = {
+  submit: async ({ request, locals }) => {
+    checkUserAuth(locals)
+
+    const formData = await request.formData()
+
+    console.log(formData)
   }
 }
